@@ -15,6 +15,7 @@
         <!--Chat List-->
         <scene sceneID="fiL-KO-Sqe">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDw-z8-ADu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="LAZ-Wk-T0E" customClass="FriendListTableViewController" customModule="publicchat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d94-Sa-Gs4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -66,9 +67,8 @@
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ChatVCSegue" id="yHY-FI-Md4"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kDw-z8-ADu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303.19999999999999" y="-769.56521739130437"/>
+            <point key="canvasLocation" x="-241" y="-719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tY2-cZ-i9b">
@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303.19999999999999" y="-52.623688155922046"/>
+            <point key="canvasLocation" x="-318" y="56"/>
         </scene>
     </scenes>
 </document>

@@ -31,8 +31,17 @@ class FriendListTableViewController: UITableViewController,ChatListView,UNUserNo
        
         print("view showed")
     }
+    func fetchHistory(){
+        let historyArray = CoreDataHandler.fetchHistoryData()
+        if historyArray.count > 0{
+            for data in historyArray{
+                print("saved id:\(data.conversationid)")
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         SocketIOManager.sharedInstance.chatListView = self
         SocketIOManager.sharedInstance.establishConnection()
@@ -57,6 +66,7 @@ class FriendListTableViewController: UITableViewController,ChatListView,UNUserNo
         return 1
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        fetchHistory()
         selectedId = friendList[indexPath.row].id!
         selectedName = friendList[indexPath.row].name!
         performSegue(withIdentifier: "ChatVCSegue", sender: nil)

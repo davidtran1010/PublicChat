@@ -10,6 +10,8 @@ import Foundation
 import SocketIO
 import Starscream
 import UserNotifications
+import CoreData
+
 struct ServerInfo {
     static let ip = "http://192.168.1.4"
     static let port = "1337"
@@ -58,7 +60,7 @@ class SocketIOManager:NSObject, URLSessionDelegate{
             let message = dataDic["message"]!
             let friendModel = FriendModel.init(id: fromFriendID, name: fromFriendID, photoURL: "")
             let chatModel = ChatModel.init(MyInfo: nil, FriendInfo: friendModel, MyMessage: nil, FriendMessage: message)
-            //ChatDataStore.HistoryChatDic["jhj"]
+            
             if ChatDataStore.HistoryChatDic[fromFriendID] == nil{
                 ChatDataStore.HistoryChatDic[fromFriendID] = [ChatModel]()
             }
@@ -81,6 +83,12 @@ class SocketIOManager:NSObject, URLSessionDelegate{
                 print(error)
             })
             
+            // save message to core data
+            if CoreDataHandler.savedHistoryObject(conversationId: fromFriendID, date: Date.init(), isMyMessage: false, message: message){
+                print("Saved new message to core data")
+            }else{
+                print("Failed to save message to Core Data")
+            }
         }
     }
     func establishConnection(){
@@ -99,6 +107,13 @@ class SocketIOManager:NSObject, URLSessionDelegate{
         let myId = ChatDataStore.myId
         socket.emit("newChatMessage", toUserID, message, myId)
         self.chatView?.updateChatModelList()
+        
+        //Save to core Data
+        if CoreDataHandler.savedHistoryObject(conversationId: toUserID, date: Date.init(), isMyMessage: true, message: message){
+            print("Saved new message to core data")
+        }else{
+            print("Failed to save message to Core Data")
+        }
     }
     
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Swift.Void) {

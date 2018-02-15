@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:FriendHistory+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:FriendHistory+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ChatHistory+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ChatHistory+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:publicchat.xcodeproj">
    </FileRef>
    <FileRef

@@ -24,6 +24,9 @@
 		0CD4C364203183D7003F589F /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4C363203183D7003F589F /* ChatTableViewCell.swift */; };
 		0CD4C3662031878F003F589F /* HistoryChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4C3652031878F003F589F /* HistoryChatModel.swift */; };
 		0CD4C3682031CE28003F589F /* myExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4C3672031CE28003F589F /* myExtention.swift */; };
+		0CEAA78120357D7F002F4731 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEAA78020357D7F002F4731 /* CoreData.framework */; };
+		0CEAA78420357DC4002F4731 /* HistoryModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAA78220357DC4002F4731 /* HistoryModel.xcdatamodeld */; };
+		0CEAA7C72035894E002F4731 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEAA7C62035894E002F4731 /* CoreDataHandler.swift */; };
 		3910783EDCEEA820CE170C44 /* Pods_publicchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD408141497038A63541780D /* Pods_publicchat.framework */; };
 		559F6390C25FE1C55AEAD52B /* Pods_publicchatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13715145F0559574C829F6CE /* Pods_publicchatUITests.framework */; };
 		8B04108EFFCAF00223EECD5E /* Pods_publicchatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2803D67B8C88E1E5B1F9713 /* Pods_publicchatTests.framework */; };
@@ -70,6 +73,9 @@
 		0CD4C363203183D7003F589F /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		0CD4C3652031878F003F589F /* HistoryChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChatModel.swift; sourceTree = "<group>"; };
 		0CD4C3672031CE28003F589F /* myExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myExtention.swift; sourceTree = "<group>"; };
+		0CEAA78020357D7F002F4731 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0CEAA78320357DC4002F4731 /* HistoryModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HistoryModel.xcdatamodel; sourceTree = "<group>"; };
+		0CEAA7C62035894E002F4731 /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
 		13715145F0559574C829F6CE /* Pods_publicchatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_publicchatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CC5237C40B88B4E8780148 /* Pods-publicchatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-publicchatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-publicchatTests/Pods-publicchatTests.release.xcconfig"; sourceTree = "<group>"; };
 		5983FEBBE05CA63FD63AD8F8 /* Pods-publicchatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-publicchatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-publicchatUITests/Pods-publicchatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CEAA78120357D7F002F4731 /* CoreData.framework in Frameworks */,
 				3910783EDCEEA820CE170C44 /* Pods_publicchat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +119,7 @@
 		0CD4C31B2031422D003F589F = {
 			isa = PBXGroup;
 			children = (
+				0CEAA78220357DC4002F4731 /* HistoryModel.xcdatamodeld */,
 				0CD4A4522034749200A2A76C /* titanic.mp3 */,
 				0CD4A4502034705900A2A76C /* 1h20m_silent_audio.mp3 */,
 				0CD4C3262031422D003F589F /* publicchat */,
@@ -149,6 +157,7 @@
 				0CD4C363203183D7003F589F /* ChatTableViewCell.swift */,
 				0CD4C3652031878F003F589F /* HistoryChatModel.swift */,
 				0CD4C3672031CE28003F589F /* myExtention.swift */,
+				0CEAA7C62035894E002F4731 /* CoreDataHandler.swift */,
 			);
 			path = publicchat;
 			sourceTree = "<group>";
@@ -204,6 +213,7 @@
 		A5143DF423D6CB3B1E339A56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CEAA78020357D7F002F4731 /* CoreData.framework */,
 				BD408141497038A63541780D /* Pods_publicchat.framework */,
 				A2803D67B8C88E1E5B1F9713 /* Pods_publicchatTests.framework */,
 				13715145F0559574C829F6CE /* Pods_publicchatUITests.framework */,
@@ -514,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CD4C35C203148BD003F589F /* ChatModel.swift in Sources */,
+				0CEAA7C72035894E002F4731 /* CoreDataHandler.swift in Sources */,
 				0CD4C35E20315828003F589F /* FriendListTableViewController.swift in Sources */,
 				0CD4C32A2031422D003F589F /* ChatViewController.swift in Sources */,
 				0CD4C35920314803003F589F /* FriendModel.swift in Sources */,
@@ -523,6 +534,7 @@
 				0CD4C364203183D7003F589F /* ChatTableViewCell.swift in Sources */,
 				0CD4C3282031422D003F589F /* AppDelegate.swift in Sources */,
 				0CD4C36020315CC2003F589F /* FriendTableViewCell.swift in Sources */,
+				0CEAA78420357DC4002F4731 /* HistoryModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,6 +838,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0CEAA78220357DC4002F4731 /* HistoryModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0CEAA78320357DC4002F4731 /* HistoryModel.xcdatamodel */,
+			);
+			currentVersion = 0CEAA78320357DC4002F4731 /* HistoryModel.xcdatamodel */;
+			path = HistoryModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0CD4C31C2031422D003F589F /* Project object */;
 }
