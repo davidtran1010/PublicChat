@@ -37,11 +37,31 @@ class CoreDataHandler:NSObject{
             return false
         }
     }
+    
+    static func fetchFriendHistory() -> [String]{
+        var friends = [String]()
+        let historyData = fetchHistoryData()
+        //Sort array for group somethings have same id
+        let sortedByIdHistory = historyData.sorted {
+            return $0.conversationid! < $1.conversationid!
+        }
+        // Filter unique id
+        for i in 0..<sortedByIdHistory.count-1{
+            if !sortedByIdHistory[i].isEqual(sortedByIdHistory[i+1]){
+                friends.append(sortedByIdHistory[i].conversationid!)
+                if i+1 == sortedByIdHistory.count-1{
+                    friends.append(sortedByIdHistory[i+1].conversationid!)
+                }
+            }
+        }
+        return friends
+    }
     static func fetchHistoryData()->[ChatHistory]{
         let context = getContext()
         var array = [ChatHistory]()
         do {
             array = try context.fetch(ChatHistory.fetchRequest())
+            
             return array
         } catch {
             print(error)

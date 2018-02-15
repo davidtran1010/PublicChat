@@ -49,7 +49,7 @@ class SocketIOManager:NSObject, URLSessionDelegate{
             ChatDataStore.CurrentUserList.removeAll()
             let reponse = data[0] as! [String:String]
             for (id,name) in reponse{
-                ChatDataStore.CurrentUserList.append(FriendModel.init(id: id, name: name, photoURL: ""))
+                ChatDataStore.CurrentUserList.insert(FriendModel.init(id: id, name: name, photoURL: ""), at: 0)
             }
             self.chatListView?.updateChatList()
         }

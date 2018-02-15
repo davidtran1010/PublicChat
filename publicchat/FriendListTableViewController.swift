@@ -27,10 +27,7 @@ class FriendListTableViewController: UITableViewController,ChatListView,UNUserNo
         self.friendList = ChatDataStore.CurrentUserList
         self.tableView.reloadData()
     }
-    override func viewDidAppear(_ animated: Bool) {
-       
-        print("view showed")
-    }
+
     func fetchHistory(){
         let historyArray = CoreDataHandler.fetchHistoryData()
         if historyArray.count > 0{
@@ -46,6 +43,9 @@ class FriendListTableViewController: UITableViewController,ChatListView,UNUserNo
         SocketIOManager.sharedInstance.chatListView = self
         SocketIOManager.sharedInstance.establishConnection()
         self.tableView.tableFooterView = UIView()
+        for friend in CoreDataHandler.fetchFriendHistory(){
+            ChatDataStore.CurrentUserList.append(FriendModel.init(id: friend, name: friend, photoURL: ""))
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
